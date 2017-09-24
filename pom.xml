@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.galaxy</groupId>
-  <artifactId>mywebapp</artifactId>
-  <packaging>war</packaging>
-  <version>1.0</version>
-  <name>Maven WebApp</name>
-  <url>http://maven.apache.org</url>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.galaxy</groupId>
+    <artifactId>ssh-project</artifactId>
+    <packaging>war</packaging>
+    <version>1.0</version>
+    <name>Maven WebApp</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -147,6 +147,6 @@
     </dependencies>
 
     <build>
-    <finalName>mywebapp</finalName>
-  </build>
+        <finalName>ssh-project</finalName>
+    </build>
 </project>

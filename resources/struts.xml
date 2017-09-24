@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 指定由spring负责action对象的创建 -->
+    <constant name="struts.objectFactory" value="spring"/>
+    <!-- 所有匹配*.action的请求都由struts2处理 -->
+    <constant name="struts.action.extension" value="action"/>
+    <!-- 是否启用开发模式 -->
+    <constant name="struts.devMode" value="false"/>
+    <!-- struts配置文件改动后，是否重新加载 -->
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <!-- 设置浏览器是否缓存静态内容 -->
+    <constant name="struts.serve.static.browserCache" value="false"/>
+    <!-- 请求参数的编码方式 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!-- 每次HTTP请求系统都重新加载资源文件，有助于开发 -->
+    <constant name="struts.i18n.reload" value="true"/>
+    <!-- 文件上传最大值 -->
+    <constant name="struts.multipart.maxSize" value="104857600"/>
+    <!-- 让struts2支持动态方法调用 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <!-- Action名称中是否还是用斜线 -->
+    <constant name="struts.enable.SlashesInActionNames" value="false"/>
+    <!-- 允许标签中使用表达式语法 -->
+    <constant name="struts.tag.altSyntax" value="true"/>
+    <!-- 对于WebLogic,Orion,OC4J此属性应该设置成true -->
+    <constant name="struts.dispatcher.parametersWorkaround" value="false"/>
+
+    <!--<package name="basePackage" namespace="/" extends="struts-default">-->
+        <!--<action name="*" class="com.galaxy.project.action.UserAction" method="{1}">-->
+            <!--<result name="success">/jsp/success.jsp</result>-->
+            <!--<result name="fail">/jsp/fail.jsp</result>-->
+        <!--</action>-->
+    <!--</package>-->
+    <package name="global-package" namespace="/" extends="struts-default">
+            <global-results>
+                <result name="error">/404.html</result>
+                <result name="input">/index.html</result>
+            </global-results>
+    </package>
+
+    <!--<package name="login" namespace="/" extends="struts-default">-->
+        <!--<action name="*" class="com.galaxy.module.login.action.LoginAction" method="{1}Action">-->
+            <!--<result name="succes">/jsp/basic.jsp</result>-->
+            <!--<result name="input">/jsp/fail.jsp</result>-->
+        <!--</action>-->
+    <!--</package>-->
+
+    <!--<package name="user" namespace="/user" extends="global-package,json-default">-->
+        <!--<action name="loginAction" class="com.galaxy.project.action.LoginAction">-->
+            <!--<result name="input">/index.html</result>-->
+            <!--<result name="success">/userInfo.jsp</result>-->
+        <!--</action>-->
+        <!--<action name="addUserAction" class="com.galaxy.project.action.UserAction" method="addUserAction">-->
+            <!--<result name="register" type="redirect">/register.jsp</result>-->
+            <!--<result name="success">/jsp/success.jsp</result>-->
+        <!--</action>-->
+        <!--<action name="getAllUserAction" class="com.galaxy.project.action.GetAllUserAction">-->
+            <!--<result type="json">-->
+                <!--<param name="root">dataMap</param>-->
+            <!--</result>-->
+        <!--</action>-->
+    <!--</package>-->
+    <!--<include file="com/galaxy/module/login/struts.xml"/>-->
+    <package name="login" namespace="/login" extends="struts-default">
+        <action name="*" class="com.galaxy.module.login.action.LoginAction" method="{1}Action">
+            <result name="success">/jsp/basic.jsp</result>
+            <result name="login" type="dispatcher">/jsp/login.jsp</result>
+        </action>
+    </package>
+</struts>
