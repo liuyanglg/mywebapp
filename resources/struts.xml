@@ -36,6 +36,13 @@
             <!--<result name="fail">/jsp/fail.jsp</result>-->
         <!--</action>-->
     <!--</package>-->
+    <package name="default" extends="struts-default">
+        <default-action-ref name="notFound" />
+        <action name="notFound">
+            <result>/404.html</result>
+        </action>
+    </package>
+
     <package name="global-package" namespace="/" extends="struts-default">
             <global-results>
                 <result name="error">/404.html</result>
@@ -66,10 +73,11 @@
         <!--</action>-->
     <!--</package>-->
     <!--<include file="com/galaxy/module/login/struts.xml"/>-->
-    <package name="login" namespace="/login" extends="struts-default">
-        <action name="*" class="com.galaxy.module.login.action.LoginAction" method="{1}Action">
-            <result name="success">/jsp/basic.jsp</result>
-            <result name="login" type="dispatcher">/jsp/login.jsp</result>
-        </action>
-    </package>
+    <!--<package name="login" namespace="/login" extends="global-package">-->
+        <!--<action name="*" class="com.galaxy.module.login.action.LoginAction" method="{1}Action">-->
+            <!--<result name="success">/jsp/basic.jsp</result>-->
+            <!--<result name="login" type="dispatcher">/jsp/login.jsp</result>-->
+        <!--</action>-->
+    <!--</package>-->
+    <include file="com/galaxy/module/**/struts.xml"/>
 </struts>
